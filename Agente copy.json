@@ -1,0 +1,148 @@
+{
+  "name": "Agente copy",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "initialMessages": "Sou especialista em instrumentos de navegação; diga a marca/modelo ou enviei a foto pelo clipe.\nMeu nome é CMTE Paulo Leite. Em que posso ajudá-lo?",
+        "options": {
+          "allowedOrigins": "*",
+          "allowFileUploads": true,
+          "allowedFilesMimeTypes": "*",
+          "inputPlaceholder": "Digite sua pergunta ou carregue imagem/documento no clipe",
+          "subtitle": "Esse assistente virtual vai ajudá-lo com suas dúvidas.",
+          "title": " ⛓ CMTE Paulo Leite ⚓",
+          "customCss": ":root {\n  /* Colors */\n  --chat--color--primary: #e74266;\n  --chat--color--primary-shade-50: #db4061;\n  --chat--color--primary--shade-100: #cf3c5c;\n  --chat--color--secondary: #20b69e;\n  --chat--color-secondary-shade-50: #1ca08a;\n  --chat--color-white: #fff;\n  --chat--color-light: #f2f4f8;\n  --chat--color-light-shade-50: #e6e9f1;\n  --chat--color-light-shade-100: #c2c5cc;\n  --chat--color-medium: #d2d4d9;\n  --chat--color-dark: #101330;\n  --chat--color-disabled: #d2d4d9;\n  --chat--color-typing: #404040;\n\n  /* Base Layout */\n  --chat--spacing: 1rem;\n  --chat--border-radius: 0.25rem;\n  --chat--transition-duration: 0.15s;\n  --chat--font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;\n\n  /* Window Dimensions */\n  --chat--window--width: 400px;\n  --chat--window--height: 600px;\n  --chat--window--bottom: var(--chat--spacing);\n  --chat--window--right: var(--chat--spacing);\n  --chat--window--z-index: 9999;\n  --chat--window--border: 1px solid var(--chat--color-light-shade-50);\n  --chat--window--border-radius: var(--chat--border-radius);\n  --chat--window--margin-bottom: var(--chat--spacing);\n\n  /* Header Styles */\n  --chat--header-height: auto;\n  --chat--header--padding: var(--chat--spacing);\n  --chat--header--background: var(--chat--color-dark);\n  --chat--header--color: var(--chat--color-light);\n  --chat--header--border-top: none;\n  --chat--header--border-bottom: none;\n  --chat--header--border-left: none;\n  --chat--header--border-right: none;\n  --chat--heading--font-size: 2em;\n  --chat--subtitle--font-size: inherit;\n  --chat--subtitle--line-height: 1.8;\n\n  /* Message Styles */\n  --chat--message--font-size: 1rem;\n  --chat--message--padding: var(--chat--spacing);\n  --chat--message--border-radius: var(--chat--border-radius);\n  --chat--message-line-height: 1.5;\n  --chat--message--margin-bottom: calc(var(--chat--spacing) * 1);\n  --chat--message--bot--background: var(--chat--color-white);\n  --chat--message--bot--color: var(--chat--color-dark);\n  --chat--message--bot--border: none;\n  --chat--message--user--background: var(--chat--color--secondary);\n  --chat--message--user--color: var(--chat--color-white);\n  --chat--message--user--border: none;\n  --chat--message--pre--background: rgba(0, 0, 0, 0.05);\n  --chat--messages-list--padding: var(--chat--spacing);\n\n  /* Toggle Button */\n  --chat--toggle--size: 64px;\n  --chat--toggle--width: var(--chat--toggle--size);\n  --chat--toggle--height: var(--chat--toggle--size);\n  --chat--toggle--border-radius: 50%;\n  --chat--toggle--background: var(--chat--color--primary);\n  --chat--toggle--hover--background: var(--chat--color--primary-shade-50);\n  --chat--toggle--active--background: var(--chat--color--primary--shade-100);\n  --chat--toggle--color: var(--chat--color-white);\n\n  /* Input Area */\n  --chat--textarea--height: 50px;\n  --chat--textarea--max-height: 30rem;\n  --chat--input--font-size: inherit;\n  --chat--input--border: 0;\n  --chat--input--border-radius: 0;\n  --chat--input--padding: 0.8rem;\n  --chat--input--background: var(--chat--color-white);\n  --chat--input--text-color: initial;\n  --chat--input--line-height: 1.5;\n  --chat--input--placeholder--font-size: var(--chat--input--font-size);\n  --chat--input--border-active: 0;\n  --chat--input--left--panel--width: 2rem;\n\n  /* Button Styles */\n  --chat--button--padding: calc(var(--chat--spacing) * 5 / 8) var(--chat--spacing);\n  --chat--button--border-radius: var(--chat--border-radius);\n  --chat--button--font-size: 1rem;\n  --chat--button--line-height: 1;\n  --chat--button--color--primary: var(--chat--color-light);\n  --chat--button--background--primary: var(--chat--color--secondary);\n  --chat--button--border--primary: none;\n  --chat--button--color--primary--hover: var(--chat--color-light);\n  --chat--button--background--primary--hover: var(--chat--color-secondary-shade-50);\n  --chat--button--border--primary--hover: none;\n  --chat--button--color--primary--disabled: var(--chat--color-light);\n  --chat--button--background--primary--disabled: #81bbb1;\n  --chat--button--border--primary--disabled: none;\n  --chat--button--color--secondary: var(--chat--color-light);\n  --chat--button--background--secondary: hsl(0, 0%, 58%);\n  --chat--button--border--secondary: none;\n  --chat--button--color--secondary--hover: var(--chat--color-light);\n  --chat--button--background--secondary--hover: hsl(0, 0%, 51%);\n  --chat--button--border--secondary--hover: none;\n  --chat--button--color--secondary--disabled: var(--chat--color-light);\n  --chat--button--background--secondary--disabled: hsl(0, 0%, 78%);\n  --chat--button--border--secondary--disabled: none;\n  --chat--close--button--color-hover: var(--chat--color--primary);\n\n  /* Send and File Buttons */\n  --chat--input--send--button--background: var(--chat--color-white);\n  --chat--input--send--button--color: var(--chat--color--secondary);\n  --chat--input--send--button--background-hover: var(--chat--color--primary-shade-50);\n  --chat--input--send--button--color-hover: var(--chat--color-secondary-shade-50);\n  --chat--input--file--button--background: var(--chat--color-white);\n  --chat--input--file--button--color: var(--chat--color--secondary);\n  --chat--input--file--button--background-hover: var(--chat--input--file--button--background);\n  --chat--input--file--button--color-hover: var(--chat--color-secondary-shade-50);\n  --chat--files-spacing: 0.25rem;\n\n  /* Body and Footer */\n  --chat--body--background: var(--chat--color-light);\n  --chat--footer--background: var(--chat--color-light);\n  --chat--footer--color: var(--chat--color-dark);\n}\n\n\n/* You can override any class styles, too. Right-click inspect in Chat UI to find class to override. */\n.chat-message {\n\tmax-width: 50%;\n}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.5,
+      "position": [
+        -240,
+        -16
+      ],
+      "id": "aa2b77e9-8ce9-4e25-a1c3-5a711fb7ad65",
+      "name": "When chat message received",
+      "webhookId": "374ff112-a10b-47f5-974f-2b13dbfba5e1"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "seu nome é Comandante Paulo Leite.\nVocê é um assistente virtual para assuntos sobre a Marinha do Brasil.\nvocê esta agora no rebocador C Ágata na Baia de São Marcos.\nvocê é especialista em assuntos sobre a Marinha do Brasil.\nResponda sempre em português.\nseja amigável, objetivo e prestativo.\najude os usuários com duvidas, pesquisas e tarefas.\nvocê realizará com precisão cálculos de conversão de rumos e latitudes e longitudes, e responderá sobre as normams(Norma da Autoridade Marítima).\nvocê é especialista em instrumentos de navegação."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -16,
+        -16
+      ],
+      "id": "e75915b4-a62e-4bd2-b124-49beb0bbd8b5",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.2,
+      "position": [
+        -80,
+        128
+      ],
+      "id": "1896f342-7d8a-4ba4-a79b-efc2d17db5a9",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "IIqu93ZOH8LOmcpm",
+          "name": "Google Gemini(PaLM) Api account 4"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        64,
+        160
+      ],
+      "id": "f727c078-6156-49b3-bce9-f6543c2b369a",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "url": "https://www.marinha.mil.br/",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.5,
+      "position": [
+        192,
+        176
+      ],
+      "id": "e5e8ee63-8b71-4de5-9b00-9db6aff88488",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": true
+  },
+  "versionId": "648fb5a5-4a7e-4d25-9ce4-1127628aae5b",
+  "meta": {
+    "instanceId": "4874bf1bd03f5167d1fdd1cd1468e273875274a75ac6ad0fbd6e62b5717078b9"
+  },
+  "nodeGroups": [],
+  "id": "k1cWQmOPLcPMbs0F",
+  "tags": []
+}
